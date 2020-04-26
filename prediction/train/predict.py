@@ -3,7 +3,7 @@ import os
 
 
 def get_predict_test_set(date="2020-01-22", stock_code="0007.hk"):
-    predict_stock_path = '../resources/test/' + 'predicted_stock_' + stock_code + '.csv'
+    predict_stock_path = 'prediction/resources/test/' + 'predicted_stock_' + stock_code + '.csv'
     if os.path.isfile(predict_stock_path):
         df = pd.read_csv(predict_stock_path, index_col="Date")
 

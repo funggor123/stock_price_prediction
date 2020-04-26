@@ -37,7 +37,7 @@ def fetch_composite_indices(data_start="2003-12-01", data_end="2020-04-01", data
     for index in COMPOSITE_INDICES_LIST:
         index_obj = yf.Ticker(index)
         df = None
-        cache_composite_path = '../resources/raw/composite_data_' + index + '_' + data_start + '_' + data_end + '.csv'
+        cache_composite_path = 'prediction/resources/raw/composite_data_' + index + '_' + data_start + '_' + data_end + '.csv'
         if use_cache is True:
             if os.path.isfile(cache_composite_path):
                 df = pd.read_csv(cache_composite_path, index_col=0)
@@ -82,7 +82,7 @@ def fetch_currencies(data_start="2003-12-01", data_end="2020-04-03", data_period
     for currency in CURRENCY_LIST:
         currency_obj = yf.Ticker(currency)
         df = None
-        cache_composite_path = '../resources/raw/currency_' + currency + '_' + data_start + '_' + data_end + '.csv'
+        cache_composite_path = 'prediction/resources/raw/currency_' + currency + '_' + data_start + '_' + data_end + '.csv'
         if use_cache is True:
             if os.path.isfile(cache_composite_path):
                 df = pd.read_csv(cache_composite_path, index_col=0)

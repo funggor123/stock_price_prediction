@@ -152,14 +152,14 @@ MIN_DATA_SET_SIZE = 64
 
 # Get dataset
 def get_datasets(stock_data, stock_code, composite_indices_df_list, currencies_df_list, use_cache=False):
-    train_input_path = '../resources/train/train_data_' + stock_code + '_.csv'
-    train_labels_path = '../resources/train/train_data_label_' + stock_code + '_.csv'
+    train_input_path = 'prediction/resources/train/train_data_' + stock_code + '_.csv'
+    train_labels_path = 'prediction/resources/train/train_data_label_' + stock_code + '_.csv'
 
-    vad_input_path = '../resources/vad/vad_data_' + stock_code + '_.csv'
-    vad_labels_path = '../resources/vad/vad_data_label_' + stock_code + '_.csv'
+    vad_input_path = 'prediction/resources/vad/vad_data_' + stock_code + '_.csv'
+    vad_labels_path = 'prediction/resources/vad/vad_data_label_' + stock_code + '_.csv'
 
-    test_input_path = '../resources/test/test_data_' + stock_code + '_.csv'
-    test_labels_path = '../resources/test/test_data_label_' + stock_code + '_.csv'
+    test_input_path = 'prediction/resources/test/test_data_' + stock_code + '_.csv'
+    test_labels_path = 'prediction/resources/test/test_data_label_' + stock_code + '_.csv'
 
     if use_cache and os.path.isfile(train_input_path) and os.path.isfile(train_labels_path) and os.path.isfile(
             vad_input_path) and os.path.isfile(vad_labels_path) and os.path.isfile(
@@ -252,7 +252,7 @@ def fetch_and_preprocess_mass_datasets():
 
 def fetch_and_preprocess_one_datasets(stock_code='0005.HK', start='2003-12-01', end='2020-04-01'):
     train_inputs, train_labels, vad_input, vad_labels, test_input, test_labels = get_datasets(fetch_stock(
-        cache_stock_data_path='../resources/raw/stock_data_' + stock_code + '_' + start + '_' + end + '.csv',
+        cache_stock_data_path='prediction/resources/raw/stock_data_' + stock_code + '_' + start + '_' + end + '.csv',
         stock_code=stock_code),
         stock_code,
         fetch_composite_indices(

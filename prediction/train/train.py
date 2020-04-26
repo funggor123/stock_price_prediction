@@ -11,7 +11,7 @@ import pandas as pd
 
 
 def train_model(stock_code, train_input, train_labels, test_input, test_labels, ep=1500, use_cache=True):
-    model_path = '../resources/models/' + 'stock_' + stock_code + '_model.pkl'
+    model_path = 'prediction/resources/models/' + 'stock_' + stock_code + '_model.pkl'
 
     train_lstm_data_loader = get_lstm_data_loader(train_input, train_labels)
     vad_lstm_data_loader = get_lstm_data_loader(test_input, test_labels, test=True, batch_size=len(test_input))
@@ -22,7 +22,7 @@ def train_model(stock_code, train_input, train_labels, test_input, test_labels, 
         return model
 
     model = train_lstm(ep, train_lstm_data_loader, vad_lstm_data_loader)
-    torch.save(model.state_dict(), '../resources/models/' + 'stock_' + stock_code + '_model.pkl')
+    torch.save(model.state_dict(), 'prediction/resources/models/' + 'stock_' + stock_code + '_model.pkl')
     return model
 
 
@@ -47,7 +47,7 @@ def train_models(ep=1500):
         mass_test_labels[idx].reset_index(inplace=True)
         df = pd.concat([result_labels['Predicted_Close'], mass_test_labels[idx]], axis=1)
         df.set_index('Date')
-        df.to_csv('../resources/test/' + 'predicted_stock_' + stock_code + '.csv')
+        df.to_csv('prediction/resources/test/' + 'predicted_stock_' + stock_code + '.csv')
 
 
 train_models(1500)

@@ -24,13 +24,13 @@ def fetch_stock(data_start="2003-12-01", data_end="2020-04-01", stock_code="0005
             return pd.read_csv(cache_stock_data_path, index_col=0)
     df = pdr.get_data_yahoo(stock_code, start=data_start, end=data_end)
     if df['Close'].count() != 0:
-        df.to_csv('../resources/raw/stock_data_' + stock_code + '_' + data_start + '_' + data_end + '.csv')
+        df.to_csv('prediction/resources/raw/stock_data_' + stock_code + '_' + data_start + '_' + data_end + '.csv')
         return df
     else:
         return None
 
 
-def fetch_stocks(data_start="2003-12-01", data_end="2020-04-01", stock_list_path="../resources/industries/", use_cache=False):
+def fetch_stocks(data_start="2003-12-01", data_end="2020-04-01", stock_list_path="prediction/resources/industries/", use_cache=False):
     df = get_stock_list(stock_list_path, None)
     stocks_data, stocks_code, fail_cron_list = [], [], []
     for index, row in df.iterrows():
@@ -38,7 +38,7 @@ def fetch_stocks(data_start="2003-12-01", data_end="2020-04-01", stock_list_path
         print('current_index: ' + str(index))
 
         if use_cache:
-            cache_stock_data_path = '../resources' + '/raw/stock_data_' + row['Stock_Code'] + '_' + data_start + '_' + data_end + '.csv'
+            cache_stock_data_path = 'prediction/resources' + '/raw/stock_data_' + row['Stock_Code'] + '_' + data_start + '_' + data_end + '.csv'
         else:
             cache_stock_data_path = None
 

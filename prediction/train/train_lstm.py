@@ -10,7 +10,7 @@ import copy
 # Device configuration
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-writer = SummaryWriter("../resources/tensorboards")
+writer = SummaryWriter("prediction/resources/tensorboards")
 
 
 def loss_function():
