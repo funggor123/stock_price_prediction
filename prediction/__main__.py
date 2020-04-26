@@ -1,6 +1,6 @@
-
+from prediction.train.train import train_models
 
 
 if __name__ == '__main__':
-    print("hi")
+    train_models(1500)
 

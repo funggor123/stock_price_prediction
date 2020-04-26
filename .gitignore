@@ -4,7 +4,13 @@ __pycache__/
 *$py.class
 
 # Project Related
-prediction/resources/
+prediction/resources/models/
+prediction/resources/raw/
+prediction/resources/tensorboards/
+prediction/resources/test/
+prediction/resources/train/
+prediction/resources/vad/
+prediction/resources/graph/
 
 # C extensions
 *.so
